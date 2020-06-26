@@ -22,7 +22,7 @@ class Menu extends Component {
     renderDish(dish) {
         if (dish != null) {
             return (
-                <DishDetail selectedDish={this.state.selectedDish}/>
+                <DishDetail dish={this.state.selectedDish}/>
             );
         } else {
             return (
@@ -32,7 +32,7 @@ class Menu extends Component {
     }
 
     render() {
-        
+
         const menu = this.props.dishes.map((dish) => {
             return (
                 <div key={dish.id} className="col-12 col-md-5 m-1 p-2" onClick={() => this.onDishSelect(dish)}>
