@@ -34,23 +34,33 @@ class DishDetail extends Component {
     }
 
     render() {
-        return [
-            <div className="col-md-5 m-1 p-2">
-                <Card>
-                    <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name} />
-                    <CardBody>
-                        <CardTitle>{this.props.dish.name}</CardTitle>
-                        <CardText>{this.props.dish.description}</CardText>
-                    </CardBody>
-                </Card>
-            </div>,
-            <div className="col-md-5 m-1 p-2">
-                <strong>
-                    <h4>Comments</h4>
-                </strong>
-                {this.renderComments(this.props.dish.comments)}
-            </div>
-        ];
+        if (this.props.dish != null) {
+            return (
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-md-5 m-1 p-2">
+                            <Card>
+                                <CardImg width="100%" src={this.props.dish.image} alt={this.props.dish.name} />
+                                <CardBody>
+                                    <CardTitle>{this.props.dish.name}</CardTitle>
+                                    <CardText>{this.props.dish.description}</CardText>
+                                </CardBody>
+                            </Card>
+                        </div>
+                        <div className="col-md-5 m-1 p-2">
+                            <strong>
+                                <h4>Comments</h4>
+                            </strong>
+                            {this.renderComments(this.props.dish.comments)}
+                        </div>
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <div></div>
+            );
+        }
     }
 }
 
